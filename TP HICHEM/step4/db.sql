@@ -1,0 +1,17 @@
+CREATE DATABASE IF NOT EXISTS bmi_app;
+USE bmi_app;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
+    password VARCHAR(100)
+);
+
+CREATE TABLE bmi_results (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    bmi_value FLOAT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
