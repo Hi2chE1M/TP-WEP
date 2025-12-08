@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-// ===== MenuItem =====
+
 class MenuItem {
     private int id;
     private String name;
@@ -29,7 +29,7 @@ class MenuItem {
     }
 }
 
-// ===== OrderItem =====
+
 class OrderItem {
     private MenuItem item;
     private int quantity;
@@ -49,7 +49,7 @@ class OrderItem {
     }
 }
 
-// ===== Order =====
+
 class Order {
     private List<OrderItem> items = new ArrayList<>();
 
@@ -68,12 +68,12 @@ class Order {
     public boolean isEmpty() { return items.isEmpty(); }
 }
 
-// ===== Main =====
+
 public class RestaurantTerminal {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // قائمة الطعام
+        
         List<MenuItem> menu = new ArrayList<>();
         menu.add(new MenuItem(1,"بيتزا",1200));
         menu.add(new MenuItem(2,"همبرغر",800));
@@ -83,7 +83,7 @@ public class RestaurantTerminal {
         Order order = new Order();
 
         while(true) {
-            System.out.println("\n=== قائمة الطعام ===");
+            System.out.println("\n قائمة الطعام ");
             for(MenuItem m : menu) System.out.println(m);
             System.out.println("0. إنهاء الطلب / Checkout");
 
@@ -95,7 +95,7 @@ public class RestaurantTerminal {
             for(MenuItem m : menu) if(m.getId() == choice) selected = m;
 
             if(selected == null) {
-                System.out.println("❌ اختيار غير صالح!");
+                System.out.println("اختيار غير صالح");
                 continue;
             }
 
@@ -106,7 +106,7 @@ public class RestaurantTerminal {
             System.out.println("✔ تم إضافة " + qty + " x " + selected.getName());
         }
 
-        // عرض الطلب والفاتورة
+  
         System.out.println("\n=== الفاتورة ===");
         for(OrderItem oi : order.getItems()) System.out.println(oi);
         System.out.println("Subtotal: " + order.getSubtotal() + " دج");
